@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "iE9chRKLO1ZuHofSYL0BXI5X6O0eFSo0fvJfoV1PS+UacP9X5wBX1Qus4v2l9JLGJ2pp6+wRwUvu3MydIQfVyQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\linda\\Desktop\\ControleDeConta\\ControleDeConta\\ControleDeConta.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\linda\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\linda\\.nuget\\packages\\microsoft.openapi\\1.6.14\\microsoft.openapi.1.6.14.nupkg.sha512",
+    "C:\\Users\\linda\\.nuget\\packages\\swashbuckle.aspnetcore\\6.6.2\\swashbuckle.aspnetcore.6.6.2.nupkg.sha512",
+    "C:\\Users\\linda\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.6.2\\swashbuckle.aspnetcore.swagger.6.6.2.nupkg.sha512",
+    "C:\\Users\\linda\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.6.2\\swashbuckle.aspnetcore.swaggergen.6.6.2.nupkg.sha512",
+    "C:\\Users\\linda\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.6.2\\swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
+  ],
+  "logs": []
+}
