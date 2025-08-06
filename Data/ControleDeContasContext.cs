@@ -14,8 +14,8 @@ namespace ControleDeConta.Data
         {
             optionsBuilder.UseLazyLoadingProxies();
         }
-        DbSet<Devedor> Devedores { get; set; }
-        DbSet<Divida> Dividas { get; set; }
-        DbSet<Pagamento> Pagamentos { get; set; }
+        public DbSet<Devedor> Devedores { get; set; }
+        public DbSet<Divida> Dividas { get; set; }
+        public DbSet<Pagamento> Pagamentos { get; set; }
     }
 }

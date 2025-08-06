@@ -7,9 +7,9 @@ namespace ControleDeConta.Modelos
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Nome { get; set; }
+        public String Nome { get; set; }
         [Required]
-        public string Cpf { get; set; }
+        public String Cpf { get; set; }
         public virtual ICollection<Divida> dividas { get; set; }
         [Required]
         public int IdDividas { get; set; }
