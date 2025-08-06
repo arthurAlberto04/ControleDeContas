@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ControleDeConta")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3de52be4a8901993b7061c66ef74e2285e00d51d")]
 [assembly: System.Reflection.AssemblyProductAttribute("ControleDeConta")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ControleDeConta")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

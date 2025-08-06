@@ -1,14 +1,27 @@
-﻿namespace ControleDeConta
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ControleDeConta.Modelos
 {
     public class Divida : CalculadoraDeJuros, IPagavel
     {
-        private float valor { get; set; }
-        private String descricao { get; set; }
-        private DateOnly dataDeInicio { get; set; }
-        private Devedor devedor { get; set; }
-        private ICollection<Pagamento> pagamentos { get; set; }
+        [Key]
+        public int Id {  get; set; }
+        [Required]
+        public float valor { get; set; }
+        [Required]
+        public String descricao { get; set; }
+        [Required]
+        public String tipo { get; set; }
+        [Required]
+        public DateOnly dataDeInicio { get; set; }
+        [Required]  
+        public virtual Devedor devedor { get; set; }
+        public virtual ICollection<Pagamento> pagamentos { get; set; }
+        [Required]
+        public int IdPagamentos { get; set; }
 
-        public Divida(float valor, string descricao, DateOnly dataDeInicio)
+
+        public Divida(float valor, string descricao, DateOnly dataDeInicio, string tipo)
         {
             if (valor > 0)
             {
@@ -16,27 +29,28 @@
             }
             this.descricao = descricao;
             this.dataDeInicio = dataDeInicio;
+            this.tipo = tipo;
         }
         public float CalcularJuros(float taxaDeJuros)
         {
-            return base.CalcularJuros(taxaDeJuros, this.valor, this.dataDeInicio);
+            return base.CalcularJuros(taxaDeJuros, valor, dataDeInicio);
         }
-        public void Paga(Pagamento pag) 
+        public void Paga(Pagamento pag)
         {
-            this.valor -= pag.valor;
+            valor -= pag.Valor;
             pagamentos.Add(pag);
-            Console.WriteLine($"Pagamento recebido no valor de {pag.valor} feito em {pag.data:dd/MM/yyyy HH:mm}");
+            //Console.WriteLine($"Pagamento recebido no valor de {pag.valor} feito em {pag.data:dd/MM/yyyy HH:mm}");
         }
         public override string ToString()
         {
-            return $"Divida no valor de R${this.valor}, Devedor: {devedor.nome} " +
-                $"lista de pagamentos recebidos - {ListarPagamentos} "; 
+            return $"Divida no valor de R${valor}, Devedor: {devedor.Nome} " +
+                $"lista de pagamentos recebidos - {ListarPagamentos} ";
         }
-        public void ListarPagamentos() 
-        { 
-            foreach (var pag in pagamentos) 
+        public void ListarPagamentos()
+        {
+            foreach (var pag in pagamentos)
             {
-                Console.WriteLine($"R${pag.valor}, feito em {pag.data:dd/MM/yyyy HH:mm}");            
+                Console.WriteLine($"R${pag.Valor}, feito em {pag.Data:dd/MM/yyyy HH:mm}");
             }
         }
     }
