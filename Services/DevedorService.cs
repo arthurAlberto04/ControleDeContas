@@ -15,7 +15,7 @@ namespace ControleDeConta.Services
 
         public Devedor CadastraDevedor(CreateDevedorDto dto) 
         { 
-            Devedor devedor = new Devedor(dto.Nome, dto.Cpf);
+            Devedor devedor = new Devedor(dto.Nome);
             _context.Devedores.Add(devedor);
             _context.SaveChanges();
             return devedor;
@@ -26,7 +26,7 @@ namespace ControleDeConta.Services
             List<ReadDevedorDto> DevedoresDto = new List<ReadDevedorDto>();
             foreach (var devedor in devedores) 
             {   
-                ReadDevedorDto DevedorDto = new ReadDevedorDto { Nome = devedor.Nome, Cpf = devedor.Cpf, Id = devedor.Id };
+                ReadDevedorDto DevedorDto = new ReadDevedorDto { Nome = devedor.Nome, Id = devedor.Id };
                 DevedoresDto.Add(DevedorDto);
             }
             return DevedoresDto;
@@ -38,7 +38,7 @@ namespace ControleDeConta.Services
             {
                 throw new Exception("Devedor Não Encontrado");
             }
-            ReadDevedorDto dto = new ReadDevedorDto { Id = devedor.Id, Nome = devedor.Nome, Cpf= devedor.Cpf };
+            ReadDevedorDto dto = new ReadDevedorDto { Id = devedor.Id, Nome = devedor.Nome};
             return dto;
         }
         public void UpdateDevedor(int Id, UpdateDevedorDto dto) 
@@ -49,7 +49,6 @@ namespace ControleDeConta.Services
                 throw new Exception("Devedor Não Encontrado");
             }
             devedor.Nome = dto.Nome;
-            devedor.Cpf = dto.Cpf;
             _context.SaveChanges();
         }
         public void DeleteDevedor(int Id) 

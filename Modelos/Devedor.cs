@@ -8,8 +8,6 @@ namespace ControleDeConta.Modelos
         public int Id { get; set; }
         [Required]
         public String Nome { get; set; }
-        [Required]
-        public String Cpf { get; set; }
         public virtual ICollection<Divida> dividas { get; set; }
         [Required]
         public int IdDividas { get; set; }
@@ -17,10 +15,9 @@ namespace ControleDeConta.Modelos
         [Required]
         public int IdPagamentos { get; set; }
 
-        public Devedor(string nome, string cpf)
+        public Devedor(string nome)
         {
             this.Nome = nome;
-            this.Cpf = cpf;
         }
     }
 }

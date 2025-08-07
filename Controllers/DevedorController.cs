@@ -28,18 +28,21 @@ namespace ControleDeConta.Controllers
             var autores = _service.GetDevedores(skip, take);
             return autores;
         }
+
         [HttpGet("{id}")]
         public IActionResult ReadDevedorById(int id)
         {
             var autor = _service.GetDevedorById(id);
             return Ok(autor);
         }
+
         [HttpPut("{id}")]
         public IActionResult UpdateDevedor(int id, [FromBody] UpdateDevedorDto dto) 
         { 
             _service.UpdateDevedor(id, dto);
             return NoContent();
         }
+
         [HttpDelete("{id}")]
         public IActionResult DeleteDevedorById(int id) 
         { 

@@ -19,11 +19,6 @@ C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\Swashbuc
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets\msbuild.ControleDeConta.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets\msbuild.build.ControleDeConta.props
-C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ControleDeConta.props
-C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ControleDeConta.props
-C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\scopedcss\bundle\ControleDeConta.styles.css
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\Controle.81708AD0.Up2Date
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\ControleDeConta.dll
@@ -169,3 +164,11 @@ C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\runtimes
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\bin\Debug\net8.0\ControleDeConta.staticwebassets.endpoints.json
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\linda\Desktop\ControleDeConta\ControleDeConta\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

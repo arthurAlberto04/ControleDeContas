@@ -1,11 +1,1 @@
-{
-  "Version": 1,
-  "Hash": "xOQn4kFXyPUivLXyMRAW/+OJoNqJOfWsIJIzb/1lwTo=",
-  "Source": "ControleDeConta",
-  "BasePath": "_content/ControleDeConta",
-  "Mode": "Default",
-  "ManifestType": "Build",
-  "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
-}
+{"Version":1,"Hash":"Y+dyUqJMxqUjZHjMFcpweFew6HeHW8r4jBJO3iMapSk=","Source":"ControleDeConta","BasePath":"_content/ControleDeConta","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
