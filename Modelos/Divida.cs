@@ -2,7 +2,7 @@
 
 namespace ControleDeConta.Modelos
 {
-    public class Divida : CalculadoraDeJuros, IPagavel
+    public class Divida : CalculadoraDeJuros
     {
         [Key]
         public int Id {  get; set; }
@@ -34,12 +34,6 @@ namespace ControleDeConta.Modelos
         public float CalcularJuros(float taxaDeJuros)
         {
             return base.CalcularJuros(taxaDeJuros, valor, dataDeInicio);
-        }
-        public void Paga(Pagamento pag)
-        {
-            valor -= pag.Valor;
-            pagamentos.Add(pag);
-            //Console.WriteLine($"Pagamento recebido no valor de {pag.valor} feito em {pag.data:dd/MM/yyyy HH:mm}");
         }
         public override string ToString()
         {
