@@ -12,5 +12,7 @@ namespace ControleDeConta.Data.Dtos
         public String tipo { get; set; }
         [Required]
         public DateOnly dataDeInicio { get; set; }
+        [Required]
+        public float taxaDeJuros { get; set; }
     }
 }

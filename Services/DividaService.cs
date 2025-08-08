@@ -15,7 +15,7 @@ namespace ControleDeConta.Services
 
         public Divida CreateDivida(CreateDividaDto dto) 
         { 
-            Divida divida = new Divida(dto.Valor, dto.descricao, dto.dataDeInicio, dto.tipo);
+            Divida divida = new Divida(dto.Valor, dto.descricao, dto.dataDeInicio, dto.tipo, dto.taxaDeJuros);
             divida.devedorId = dto.devedorId;
             _context.Add(divida);
             _context.SaveChanges();
@@ -44,7 +44,8 @@ namespace ControleDeConta.Services
                     tipo = divida.tipo,
                     valor = divida.valor,
                     descricao = divida.descricao,
-                    pagamentoDtos = pagDtos
+                    pagamentoDtos = pagDtos,
+                    taxaDeJuros = divida.taxaDeJuros
                 };
                 listDtos.Add(dto);
             }
@@ -85,6 +86,7 @@ namespace ControleDeConta.Services
             divida.descricao = dto.descricao;
             divida.tipo = dto.tipo;
             divida.dataDeInicio = dto.dataDeInicio;
+            divida.taxaDeJuros = dto.taxaDeJuros;
             _context.SaveChanges();
         }
         public void DeleteDivida(int id) 

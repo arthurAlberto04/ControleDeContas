@@ -519,6 +519,7 @@
           "dataDeInicio",
           "descricao",
           "devedorId",
+          "taxaDeJuros",
           "tipo",
           "valor"
         ],
@@ -543,6 +544,10 @@
           "devedorId": {
             "type": "integer",
             "format": "int32"
+          },
+          "taxaDeJuros": {
+            "type": "number",
+            "format": "float"
           }
         },
         "additionalProperties": false
@@ -607,6 +612,10 @@
             "type": "string",
             "format": "date"
           },
+          "taxaDeJuros": {
+            "type": "number",
+            "format": "float"
+          },
           "pagamentoDtos": {
             "type": "array",
             "items": {
@@ -655,6 +664,7 @@
         "required": [
           "dataDeInicio",
           "descricao",
+          "taxaDeJuros",
           "tipo",
           "valor"
         ],
@@ -675,6 +685,10 @@
           "dataDeInicio": {
             "type": "string",
             "format": "date"
+          },
+          "taxaDeJuros": {
+            "type": "number",
+            "format": "float"
           }
         },
         "additionalProperties": false

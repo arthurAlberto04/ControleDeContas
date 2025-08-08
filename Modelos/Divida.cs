@@ -7,6 +7,8 @@ namespace ControleDeConta.Modelos
         [Key]
         public int Id {  get; set; }
         [Required]
+        public float taxaDeJuros { get; set; } 
+        [Required]
         public float valor { get; set; }
         [Required]
         public String descricao { get; set; }
@@ -20,19 +22,20 @@ namespace ControleDeConta.Modelos
         public virtual ICollection<Pagamento> pagamentos { get; set; }
 
 
-        public Divida(float valor, string descricao, DateOnly dataDeInicio, string tipo)
+        public Divida(float valor, string descricao, DateOnly dataDeInicio, string tipo, float taxaDeJuros)
         {
+            this.descricao = descricao;
+            this.dataDeInicio = dataDeInicio;
+            this.tipo = tipo;
+            this.taxaDeJuros = taxaDeJuros;
             if (valor > 0)
             {
                 this.valor = valor;
             }
-            this.descricao = descricao;
-            this.dataDeInicio = dataDeInicio;
-            this.tipo = tipo;
         }
-        public float CalcularJuros(float taxaDeJuros)
+        public float CalcularJuros()
         {
-            return base.CalcularJuros(taxaDeJuros, valor, dataDeInicio);
+            return base.CalcularJuros(this.taxaDeJuros, this.valor, this.dataDeInicio);
         }
         public override string ToString()
         {

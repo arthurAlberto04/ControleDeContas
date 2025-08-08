@@ -7,7 +7,7 @@ namespace ControleDeConta.Modelos
 
         public virtual float CalcularJuros(float taxaDeJuros, float valor, DateOnly dataDeInicio)
         {
-
+            
             return valor *= taxaDeJuros * CalculaMeses(dataDeInicio);
 
         }
@@ -15,7 +15,10 @@ namespace ControleDeConta.Modelos
         {
             int anos = DateOnly.FromDateTime(DateTime.Now).Year - dataDeInicio.Year;
             int meses = DateOnly.FromDateTime(DateTime.Now).Month - dataDeInicio.Month;
-
+            if(DateOnly.FromDateTime(DateTime.Now).Day < dataDeInicio.Day) 
+            {
+                meses = meses - 1;
+            }
             return anos * 12 + meses;
         }
     }
