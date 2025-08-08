@@ -16,7 +16,7 @@ namespace ControleDeConta.Services
         public Divida CreateDivida(CreateDividaDto dto) 
         { 
             Divida divida = new Divida(dto.Valor, dto.descricao, dto.dataDeInicio, dto.tipo);
-            divida.devedor.Id = dto.devedorId;
+            divida.devedorId = dto.devedorId;
             _context.Add(divida);
             _context.SaveChanges();
             return divida;
@@ -27,14 +27,24 @@ namespace ControleDeConta.Services
             var dividas = _context.Dividas.Skip(skip).Take(take).ToList();
             List<ReadDividaDto> listDtos = new List<ReadDividaDto>();
             foreach (var divida in dividas) 
-            { 
-                ReadDividaDto dto = new ReadDividaDto { Id = divida.Id, 
+            {
+                var pagDtos = divida.pagamentos.Select(p => new ReadPagamentoDto
+                {
+                    Id = p.Id,
+                    data = p.Data,
+                    valor = p.Valor,
+                    devedorDto = new ReadDevedorDto
+                    {
+                        Id = p.devedor.Id,
+                        Nome = p.devedor.Nome
+                    }
+                }).ToList();
+                ReadDividaDto dto = new ReadDividaDto { Id = divida.Id,
                     dataDeInicio = divida.dataDeInicio,
                     tipo = divida.tipo,
                     valor = divida.valor,
                     descricao = divida.descricao,
-                    devedor = divida.devedor,
-                    pagamentos = divida.pagamentos
+                    pagamentoDtos = pagDtos
                 };
                 listDtos.Add(dto);
             }
@@ -45,6 +55,17 @@ namespace ControleDeConta.Services
         { 
             var divida = _context.Dividas.FirstOrDefault(d => d.Id == id);
             if(divida == null) { throw new Exception("Divida não encontrada"); }
+            var pagDtos = divida.pagamentos.Select(p => new ReadPagamentoDto
+            {
+                Id = p.Id,
+                data = p.Data,
+                valor = p.Valor,
+                devedorDto = new ReadDevedorDto
+                {
+                    Id = p.devedor.Id,
+                    Nome = p.devedor.Nome
+                }
+            }).ToList();
             ReadDividaDto dto = new ReadDividaDto
             {
                 Id = divida.Id,
@@ -52,8 +73,7 @@ namespace ControleDeConta.Services
                 tipo = divida.tipo,
                 valor = divida.valor,
                 descricao = divida.descricao,
-                devedor = divida.devedor,
-                pagamentos = divida.pagamentos
+                pagamentoDtos = pagDtos
             };
             return dto;
         }

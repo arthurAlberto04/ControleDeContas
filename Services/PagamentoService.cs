@@ -37,13 +37,18 @@ namespace ControleDeConta.Services
             List<ReadPagamentoDto> listaDto = new List<ReadPagamentoDto>();
             foreach (var pagamento in pagamentos) 
             { 
+                ReadDevedorDto Dto = new ReadDevedorDto 
+                { 
+                    Id = pagamento.devedor.Id,
+                    Nome = pagamento.devedor.Nome
+                
+                };
                 ReadPagamentoDto pagamentoDto = new ReadPagamentoDto 
                 { 
                     Id = pagamento.Id,
                     valor = pagamento.Valor,
                     data = pagamento.Data,
-                    devedor = pagamento.devedor,
-                    divida = pagamento.Divida
+                    devedorDto = Dto,
                 };
                 listaDto.Add(pagamentoDto);
             }
@@ -54,13 +59,18 @@ namespace ControleDeConta.Services
         { 
             var pagamento = _context.Pagamentos.FirstOrDefault(p => p.Id == id);
             if (pagamento == null) { throw new Exception("Pagamento não encontrado"); }
+            ReadDevedorDto Dto = new ReadDevedorDto
+            {
+                Id = pagamento.devedor.Id,
+                Nome = pagamento.devedor.Nome
+
+            };
             ReadPagamentoDto pagamentoDto = new ReadPagamentoDto
             {
                 Id = pagamento.Id,
                 valor = pagamento.Valor,
                 data = pagamento.Data,
-                devedor = pagamento.devedor,
-                divida = pagamento.Divida
+                devedorDto = Dto,
             };
             return pagamentoDto;
         }
@@ -71,7 +81,7 @@ namespace ControleDeConta.Services
             if (pagamento == null) { throw new Exception("Pagamento não encontrado"); }
             pagamento.Valor = dto.Valor;
             pagamento.Data = dto.Data;
-            pagamento.Divida.Id = dto.dividaId;
+            pagamento.divida.Id = dto.dividaId;
             pagamento.devedor.Id = dto.devedorId;
         }
 

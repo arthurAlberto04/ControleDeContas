@@ -7,7 +7,6 @@ namespace ControleDeConta.Data.Dtos
         public int Id { get; set; }
         public float valor { get; set; }
         public DateTime data {  get; set; }
-        public virtual Devedor devedor { get; set; }
-        public virtual Divida divida { get; set; }
+        public ReadDevedorDto devedorDto { get; set; }
     }
 }

@@ -14,11 +14,10 @@ namespace ControleDeConta.Modelos
         public String tipo { get; set; }
         [Required]
         public DateOnly dataDeInicio { get; set; }
-        [Required]  
+        [Required]
+        public int devedorId { get; set; }
         public virtual Devedor devedor { get; set; }
         public virtual ICollection<Pagamento> pagamentos { get; set; }
-        [Required]
-        public int IdPagamentos { get; set; }
 
 
         public Divida(float valor, string descricao, DateOnly dataDeInicio, string tipo)

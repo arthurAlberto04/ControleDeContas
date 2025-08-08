@@ -9,8 +9,8 @@ namespace ControleDeConta.Modelos
             if (valor < 0) throw new ArgumentException("Valor Deve ser maior que zero");
             this.Valor = valor;
             Data = DateTime.UtcNow;
-            Divida.Id = dividaId;
-            devedor.Id = devedorId;
+            this.dividaId = dividaId;
+            this.devedorId = devedorId;
         }
         [Key]
         public int Id { get; set; }
@@ -19,8 +19,10 @@ namespace ControleDeConta.Modelos
         [Required]
         public DateTime Data { get; set; }
         [Required]
-        public virtual Divida Divida { get; set; }
+        public int dividaId { get; set; }
+        public virtual Divida divida { get; set; }
         [Required]
+        public int devedorId { get; set; }
         public virtual Devedor devedor { get; set; }
     }
 }

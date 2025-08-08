@@ -9,11 +9,7 @@ namespace ControleDeConta.Modelos
         [Required]
         public String Nome { get; set; }
         public virtual ICollection<Divida> dividas { get; set; }
-        [Required]
-        public int IdDividas { get; set; }
         public virtual ICollection<Pagamento> pagamentos { get; set; }
-        [Required]
-        public int IdPagamentos { get; set; }
 
         public Devedor(string nome)
         {

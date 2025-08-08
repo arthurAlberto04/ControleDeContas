@@ -1,5 +1,6 @@
 using ControleDeConta.Data;
 using ControleDeConta.Modelos;
+using ControleDeConta.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<DividaService>();
+builder.Services.AddScoped<DevedorService>();
+builder.Services.AddScoped<PagamentoService>();
 
 var app = builder.Build();
 

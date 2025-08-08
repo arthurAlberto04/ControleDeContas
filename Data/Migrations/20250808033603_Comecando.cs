@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ControleDeConta.Migrations
 {
     /// <inheritdoc />
-    public partial class CriandoDb : Migration
+    public partial class Comecando : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,7 @@ namespace ControleDeConta.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Cpf = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdDividas = table.Column<int>(type: "int", nullable: false),
-                    IdPagamentos = table.Column<int>(type: "int", nullable: false)
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,9 +34,7 @@ namespace ControleDeConta.Migrations
                     descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tipo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     dataDeInicio = table.Column<DateOnly>(type: "date", nullable: false),
-                    IdDevedor = table.Column<int>(type: "int", nullable: false),
-                    devedorId = table.Column<int>(type: "int", nullable: false),
-                    IdPagamentos = table.Column<int>(type: "int", nullable: false)
+                    devedorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -49,7 +44,7 @@ namespace ControleDeConta.Migrations
                         column: x => x.devedorId,
                         principalTable: "Devedores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -60,10 +55,8 @@ namespace ControleDeConta.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Valor = table.Column<float>(type: "real", nullable: false),
                     Data = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DividaId = table.Column<int>(type: "int", nullable: false),
-                    IdDivida = table.Column<int>(type: "int", nullable: false),
-                    devedorId = table.Column<int>(type: "int", nullable: false),
-                    IdDevedor = table.Column<int>(type: "int", nullable: false)
+                    dividaId = table.Column<int>(type: "int", nullable: false),
+                    devedorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,13 +66,13 @@ namespace ControleDeConta.Migrations
                         column: x => x.devedorId,
                         principalTable: "Devedores",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Pagamentos_Dividas_DividaId",
-                        column: x => x.DividaId,
+                        name: "FK_Pagamentos_Dividas_dividaId",
+                        column: x => x.dividaId,
                         principalTable: "Dividas",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -93,9 +86,9 @@ namespace ControleDeConta.Migrations
                 column: "devedorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Pagamentos_DividaId",
+                name: "IX_Pagamentos_dividaId",
                 table: "Pagamentos",
-                column: "DividaId");
+                column: "dividaId");
         }
 
         /// <inheritdoc />

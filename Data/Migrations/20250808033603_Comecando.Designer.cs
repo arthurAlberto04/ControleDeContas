@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControleDeConta.Migrations
 {
     [DbContext(typeof(ControleDeContasContext))]
-    [Migration("20250806025742_CriandoDb")]
-    partial class CriandoDb
+    [Migration("20250808033603_Comecando")]
+    partial class Comecando
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,16 +36,6 @@ namespace ControleDeConta.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("IdDividas")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPagamentos")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -62,12 +52,6 @@ namespace ControleDeConta.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdDevedor")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPagamentos")
-                        .HasColumnType("int");
 
                     b.Property<DateOnly>("dataDeInicio")
                         .HasColumnType("date");
@@ -104,26 +88,20 @@ namespace ControleDeConta.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DividaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdDevedor")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdDivida")
-                        .HasColumnType("int");
-
                     b.Property<float>("Valor")
                         .HasColumnType("real");
 
                     b.Property<int>("devedorId")
                         .HasColumnType("int");
 
+                    b.Property<int>("dividaId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("DividaId");
-
                     b.HasIndex("devedorId");
+
+                    b.HasIndex("dividaId");
 
                     b.ToTable("Pagamentos");
                 });
@@ -141,21 +119,21 @@ namespace ControleDeConta.Migrations
 
             modelBuilder.Entity("ControleDeConta.Modelos.Pagamento", b =>
                 {
-                    b.HasOne("ControleDeConta.Modelos.Divida", "Divida")
-                        .WithMany("pagamentos")
-                        .HasForeignKey("DividaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ControleDeConta.Modelos.Devedor", "devedor")
                         .WithMany("pagamentos")
                         .HasForeignKey("devedorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Divida");
+                    b.HasOne("ControleDeConta.Modelos.Divida", "divida")
+                        .WithMany("pagamentos")
+                        .HasForeignKey("dividaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("devedor");
+
+                    b.Navigation("divida");
                 });
 
             modelBuilder.Entity("ControleDeConta.Modelos.Devedor", b =>
